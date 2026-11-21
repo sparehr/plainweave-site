@@ -282,3 +282,4 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; display
 .conn .name img.lg-stripe, .conn .name img.lg-linear, .conn .name img.lg-slack, .conn .name img.lg-notion { height: 30px; }
 .conn .name img.lg-salesforce { height: 44px; }
 .conn .name img.lg-microsoft-365 { height: 64px; margin: -10px 0 -10px -16px; }
+.lockup img { max-width: 100%; height: auto; display: block; }
