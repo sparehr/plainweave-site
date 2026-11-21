@@ -1,4 +1,4 @@
-/* Swarmed site. Tokens follow brand/tokens.css and brand/BRAND.md (dark-first, amber as signal only). */
+/* Loose Ends site. Tokens follow brand/tokens.css and brand/BRAND.md (dark-first, amber as signal only). */
 :root {
   --ink: #0e1116; --ink-800: #1a1f27; --paper: #f6f3ec; --amber: #ffb020; --teal: #2fd0c0; --red: #ff7a7e;
   --muted: #c9ced6; --line: #2e3542;
@@ -71,7 +71,7 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; display
 .feeds { display: block; margin-top: 12px; font: 400 12px/1.5 var(--mono); color: var(--muted); }
 .note a, .sub a, .faq a { text-underline-offset: 3px; }
 
-/* How the swarm works */
+/* How the agents work */
 .flow { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .stage { position: relative; background: var(--ink-800); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 8px; }
 .stage svg { width: 76px; height: 60px; }
