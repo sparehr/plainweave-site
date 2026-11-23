@@ -37,6 +37,7 @@
     <ul class="list">
       <li><span><b>One isolated store per client.</b> A separate database per company, with no shared tables.</span></li>
       <li><span><b>Evidence is hashed.</b> A finding whose evidence has changed since it was stored is rejected.</span></li>
+      <li><span><b>No silent partial lists.</b> A list longer than a connector's page limit, or a provider that sends the same page cursor twice, is never passed on as complete. The fetch stops, or the record says the list is incomplete. Where a provider itself can shorten a list, such as Stripe invoice lines or a Notion title with 25 or more mentions, the record says it may be short.</span></li>
       <li><span><b>Only verified findings leave the store</b>, with exactly the records they cite. Exports are bound to your company and rejected anywhere else.</span></li>
       <li><span><b>Credentials are never stored with evidence.</b></span></li>
       <li><span><b>Deletion</b> on request and at the end of the engagement.</span></li>
