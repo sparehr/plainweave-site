@@ -1,4 +1,4 @@
-/* Loose Ends site. Tokens follow brand/tokens.css and brand/BRAND.md (dark-first, amber as signal only). */
+/* Plainweave site. Tokens follow brand/tokens.css and brand/BRAND.md (dark-first, amber as signal only). */
 :root {
   --ink: #0e1116; --ink-800: #1a1f27; --paper: #f6f3ec; --amber: #ffb020; --teal: #2fd0c0; --red: #ff7a7e;
   --muted: #c9ced6; --line: #2e3542;
