@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brindlewood Supply: Plainweave Audit report</title>
+<style>
+/* Self-contained: no external fonts, scripts or images, so the file can be archived and opened offline. */
+:root { --bg:#f6f3ec; --sheet:#fffdf8; --fg:#0e1116; --muted:#5b6472; --line:#d9d5ca; --amber:#ffb020; --teal:#0c8f83;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --sheet:#1a1f27; --fg:#f6f3ec; --muted:#c9ced6; --line:#2e3542; --teal:#2fd0c0; color-scheme:dark; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:400 16px/1.55 var(--body); padding:24px 16px; }
+main { max-width:900px; margin:0 auto; background:var(--sheet); border:1px solid var(--line); border-radius:10px; padding:clamp(20px,5vw,48px); }
+h1 { font:700 clamp(28px,5vw,40px)/1.1 var(--display); letter-spacing:-.02em; margin:6px 0 10px; }
+h2 { font:700 22px/1.2 var(--display); letter-spacing:-.01em; margin:40px 0 4px; padding-top:20px; border-top:1px solid var(--line); }
+.eyebrow, th { font:500 11px/1.3 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:22px 0 0; }
+.meta dt { font:500 11px/1.3 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.meta dd { margin:2px 0 0; font-weight:600; overflow-wrap:anywhere; }
+.muted { color:var(--muted); } .mono { font-family:var(--mono); font-size:12.5px; overflow-wrap:anywhere; }
+.finding { border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:14px 0; break-inside:avoid; }
+.finding p { margin:8px 0; font-weight:500; }
+.badge { font:500 11px/1 var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--teal); border:1px solid currentColor; border-radius:999px; padding:5px 9px; }
+.who { font-size:13px; color:var(--muted); }
+.rank { font:600 13px/1 var(--mono); color:var(--muted); margin-left:6px; }
+.score { display:flex; gap:22px; margin:4px 0 8px; }
+.score dt { font:500 11px/1.3 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.score dd { margin:2px 0 0; font-weight:600; }
+.finding p.basis { font-weight:400; font-size:14px; }
+.evidence { list-style:none; margin:10px 0 0; padding:10px 0 0; border-top:1px dashed var(--line); display:grid; gap:8px; }
+.evidence a { color:inherit; }
+.scroll { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; font-size:14px; }
+th, td { text-align:left; padding:8px 12px 8px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+ul.plain { margin:8px 0; padding-left:20px; }
+footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+@media print { body { background:#fff; padding:0; } main { border:0; } }
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<main>
+<p class="muted" style="border:1px solid currentColor;border-radius:8px;padding:10px 14px;margin:0 0 18px">Sample report. Brindlewood Supply is an invented company. Its records are Plainweave's test fixtures, read by the real connectors, routed, analysed and verified by the real pipeline; only the model's replies are scripted. <a href="/">Back to Plainweave</a></p>
+<span class="eyebrow">Plainweave Audit report</span>
+<h1>Brindlewood Supply</h1>
+<p class="muted">Every finding below was checked against the cited record by a role other than its author. Findings that could not be traced to a stored, unchanged source are not in this report.</p>
+<p class="muted">Observed facts describe cited values. Hypotheses and recommendations remain interpretations for human review, even after evidence checks.</p>
+<dl class="meta">
+  <div><dt>Verified findings</dt><dd>8</dd></div>
+  <div><dt>Records cited</dt><dd>6</dd></div>
+  <div><dt>Collected</dt><dd>1 October to 5 November 2026</dd></div>
+  <div><dt>Generated</dt><dd>24 Nov 2026, 20:58 UTC</dd></div>
+</dl>
+
+<h2 id="system">Systems map</h2>
+<p class="muted">What you run and how it connects.</p>
+<article class="finding" id="finding-b46f968b-a7bd-4b5b-ad65-935ab92d886f">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>A shared PDF in Drive is owned by an outside domain, fennimorelabs.example.</p>
+  <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">google_workspace://workspace/drive/files/1FnPilotPlan<br>/owner_domains/0 → fennimorelabs.example</li>
+    <li class="mono">google_workspace://workspace/drive/files/1FnPilotPlan<br>/shared</li>
+  </ul>
+</article>
+<article class="finding" id="finding-a492f6a0-0c4e-46dd-9e76-98d14f3c94f8">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>A recurring 15-minute event with 3 attendees starts at 09:00 UTC on 2 November 2026, organised inside brindlewood.example.</p>
+  <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/recurring</li>
+    <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/attendee_count</li>
+    <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/start → 2026-11-02T09:00:00Z</li>
+    <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/end → 2026-11-02T09:15:00Z</li>
+  </ul>
+</article>
+<h2 id="ownership">Queue ownership</h2>
+<p class="muted">Where work waits, and who owns it.</p>
+<article class="finding" id="finding-4cb30a6d-cc31-4e54-8a91-fe48f7160a45">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>The label-printer repository was last pushed on 9 January 2025 and has 19 open issues.</p>
+  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/pushed_at → 2025-01-09T11:45:00Z</li>
+    <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/open_issues_count</li>
+  </ul>
+</article>
+<article class="finding" id="finding-2621aca1-f95b-4ad9-a75a-e6278a0c57ef">
+  <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span>
+  <p>Name an owner for label-printer, or record that it is retired.</p>
+<p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 2 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No push since January 2025 and 19 open issues. The records do not say who owns it; staff should confirm before anything is changed.</p>  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/pushed_at → 2025-01-09T11:45:00Z</li>
+    <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/open_issues_count</li>
+  </ul>
+</article>
+<h2 id="handoff">Handoff gaps</h2>
+<p class="muted">Where work passes between teams and stalls.</p>
+<article class="finding" id="finding-d4c36db4-e753-447f-9dba-bb4ee7920d1e">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>Pull request 41 in dispatch-api has been open since 1 October 2026 with no pending review request to a person or a team.</p>
+  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/state → open</li>
+    <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/created_at → 2026-10-01T09:00:00Z</li>
+    <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_reviewers</li>
+    <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_teams</li>
+  </ul>
+</article>
+<article class="finding" id="finding-3debaccb-5a48-4cf0-8c31-ddcffc012e6b">
+  <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span>
+  <p>Confirm who reviews pull request 41 in dispatch-api, and how a review is requested when the author does not name one.</p>
+<p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 1 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No review request is pending. GitHub drops a reviewer once they review, so it may have been reviewed; staff can confirm in one look.</p>  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_reviewers</li>
+    <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_teams</li>
+  </ul>
+</article>
+<h2 id="support_flow">Support flow</h2>
+<p class="muted">How a request moves from arrival to resolution.</p>
+<article class="finding" id="finding-c67bd16f-7142-4528-9693-bde6f13b44cd">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>#label-printer-help had one message in the window, on 31 October 2026, and no replies.</p>
+  <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">slack://workspace/channels/C02BWLABELS/activity<br>/message_count</li>
+    <li class="mono">slack://workspace/channels/C02BWLABELS/activity<br>/messages_per_day/2026-10-31</li>
+    <li class="mono">slack://workspace/channels/C02BWLABELS/activity<br>/reply_count_total</li>
+  </ul>
+</article>
+<h2 id="spend">AI and tool spend</h2>
+<p class="muted">What you pay for and what is used.</p>
+<p class="muted">No verified findings in this audit. That is not a finding that nothing is wrong: see what was examined below.</p>
+<h2 id="automation">Automation backlog</h2>
+<p class="muted">What to automate first.</p>
+<p class="muted rule">Ranked by value (highest first), then effort (lowest first), then the order found. Items without both scores come last, marked Not scored.</p><article class="finding" id="finding-08718837-0208-4037-8bfa-17f457e192e1">
+  <span class="badge">Verified</span> <span class="badge">Hypothesis</span> <span class="rank">#1</span>
+  <p>dispatch-api has an active workflow named manual-deploy, so releases may need a person to start them.</p>
+  <dl class="score"><div><dt>Score</dt><dd>Not scored</dd></div></dl>
+  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002<br>/name → manual-deploy</li>
+    <li class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002<br>/state → active</li>
+  </ul>
+</article>
+
+<h2 id="scope">What was examined</h2>
+<p class="muted">Connectors used: github, slack, google_workspace.</p>
+<p class="muted">Collection window: 1 October to 5 November 2026.</p><p><strong>Unknown or not examined:</strong></p>
+<ul class="plain"><li>Unknown: Email (not examined)</li><li>Unknown: Phone support (not examined)</li><li>Unknown: The finance team&#39;s tools (not examined)</li><li>Unknown: slack://workspace/channels/C03FENNSHRD/activity (selected resource unavailable)</li></ul>
+
+<h2 id="evidence">Evidence cited</h2>
+<div class="scroll"><table>
+<thead><tr><th>Record</th><th>Kind</th><th>Read at</th><th>Content hash</th></tr></thead>
+<tbody>
+<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/pulls/41</td><td>pull_request</td><td>24 Nov 2026, 20:58 UTC</td><td class="mono">8d6710ec34bd789a</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002</td><td>workflow</td><td>24 Nov 2026, 20:58 UTC</td><td class="mono">491b97bfe46c5c80</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/label-printer</td><td>repository</td><td>24 Nov 2026, 20:58 UTC</td><td class="mono">22468da259fd32e3</td></tr>
+<tr><td class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup</td><td>calendar_event</td><td>24 Nov 2026, 20:58 UTC</td><td class="mono">7b8c7c404a5d480c</td></tr>
+<tr><td class="mono">google_workspace://workspace/drive/files/1FnPilotPlan</td><td>drive_file</td><td>24 Nov 2026, 20:58 UTC</td><td class="mono">fd2bca8ea683d9d5</td></tr>
+<tr><td class="mono">slack://workspace/channels/C02BWLABELS/activity</td><td>channel_activity</td><td>24 Nov 2026, 20:58 UTC</td><td class="mono">c312f1f968d9e9eb</td></tr>
+</tbody>
+</table></div>
+
+<footer>
+  <div>Prepared by Plainweave from evidence export <span class="mono">dc2de66b836915a4</span> of store <span class="mono">brindlewood-supply/33c0b8e7-f3c8-435b-9a53-778177d309f9</span>.</div>
+  <div>Access during this audit was read-only.</div>
+</footer>
+</main>
+</body>
+</html>
