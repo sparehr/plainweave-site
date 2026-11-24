@@ -35,6 +35,24 @@ table { border-collapse:collapse; width:100%; font-size:14px; }
 th, td { text-align:left; padding:8px 12px 8px 0; border-bottom:1px solid var(--line); vertical-align:top; }
 ul.plain { margin:8px 0; padding-left:20px; }
 footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+.map { margin:22px 0 8px; }
+.map svg { width:100%; height:auto; display:block; }
+.map .grid { stroke:var(--line); stroke-width:1; }
+.map .label { font:400 12px var(--mono); fill:var(--fg); }
+.map .system { font:500 10px var(--mono); fill:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+.map .head { font:600 12px var(--body); fill:var(--muted); }
+.map .fact { fill:var(--teal); }
+.map .hypothesis { fill:var(--sheet); stroke:var(--teal); stroke-width:2; }
+.map .recommendation { fill:var(--amber); }
+.map .count { font:600 10px var(--mono); fill:var(--sheet); }
+.map .hypothesis + .count { fill:var(--teal); }
+.map .recommendation + .count { fill:#0e1116; }
+.map a:focus-visible circle { stroke:var(--fg); stroke-width:2; }
+.legend { display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); margin:6px 0 0; }
+.legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
+.legend .fact::before { background:var(--teal); }
+.legend .hypothesis::before { border:2px solid var(--teal); width:6px; height:6px; }
+.legend .recommendation::before { background:var(--amber); }
 @media print { body { background:#fff; padding:0; } main { border:0; } }
 </style>
 <meta name="robots" content="noindex">
@@ -50,12 +68,57 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
   <div><dt>Verified findings</dt><dd>8</dd></div>
   <div><dt>Records cited</dt><dd>6</dd></div>
   <div><dt>Collected</dt><dd>1 October to 5 November 2026</dd></div>
-  <div><dt>Generated</dt><dd>24 Nov 2026, 23:06 UTC</dd></div>
+  <div><dt>Generated</dt><dd>24 Nov 2026, 23:43 UTC</dd></div>
 </dl>
+<section class="map" aria-labelledby="map-title">
+<h2 id="map-title">Where the findings are</h2>
+<p class="muted">Each row is a record a verified finding cites; each column is a section of this report. Select a marker to go to its finding. It shows where findings cluster, not everything that was read.</p>
+<svg viewBox="0 0 794 264" role="img" aria-label="Findings map: 8 verified findings across 6 cited records. The record with the most findings is dispatch-api · PR 41.">
+<text class="head" x="313.0" y="30" text-anchor="middle">Systems</text>
+<line class="grid" x1="313.0" y1="40" x2="313.0" y2="256"/>
+<text class="head" x="399.0" y="30" text-anchor="middle">Ownership</text>
+<line class="grid" x1="399.0" y1="40" x2="399.0" y2="256"/>
+<text class="head" x="485.0" y="30" text-anchor="middle">Handoffs</text>
+<line class="grid" x1="485.0" y1="40" x2="485.0" y2="256"/>
+<text class="head" x="571.0" y="30" text-anchor="middle">Support</text>
+<line class="grid" x1="571.0" y1="40" x2="571.0" y2="256"/>
+<text class="head" x="657.0" y="30" text-anchor="middle">Spend</text>
+<line class="grid" x1="657.0" y1="40" x2="657.0" y2="256"/>
+<text class="head" x="743.0" y="30" text-anchor="middle">Automation</text>
+<line class="grid" x1="743.0" y1="40" x2="743.0" y2="256"/>
+<line class="grid" x1="0" y1="86.0" x2="794" y2="86.0" opacity="0.5"/>
+<text class="system" x="0" y="65.0">github</text>
+<text class="label" x="0" y="79.0">dispatch-api · PR 41</text>
+<line class="grid" x1="0" y1="120.0" x2="794" y2="120.0" opacity="0.5"/>
+<text class="system" x="0" y="99.0">github</text>
+<text class="label" x="0" y="113.0">label-printer</text>
+<line class="grid" x1="0" y1="154.0" x2="794" y2="154.0" opacity="0.5"/>
+<text class="system" x="0" y="133.0">github</text>
+<text class="label" x="0" y="147.0">workflow · manual-deploy</text>
+<line class="grid" x1="0" y1="188.0" x2="794" y2="188.0" opacity="0.5"/>
+<text class="system" x="0" y="167.0">google_workspace</text>
+<text class="label" x="0" y="181.0">calendar event · evtdispatchstandup</text>
+<line class="grid" x1="0" y1="222.0" x2="794" y2="222.0" opacity="0.5"/>
+<text class="system" x="0" y="201.0">google_workspace</text>
+<text class="label" x="0" y="215.0">Drive file · 1FnPilotPlan</text>
+<line class="grid" x1="0" y1="256.0" x2="794" y2="256.0" opacity="0.5"/>
+<text class="system" x="0" y="235.0">slack</text>
+<text class="label" x="0" y="249.0">C02BWLABELS · activity</text>
+<a href="#finding-2c18586d-eb0b-4940-8f38-f7cf9c86baea"><title>Pull request 41 in dispatch-api has been open since 1 October 2026 with no pending review request to a person or a team.
+Confirm who reviews pull request 41 in dispatch-api, and how a review is requested when the author does not name one.</title><circle class="recommendation" cx="485.0" cy="69.0" r="9"/><text class="count" x="485.0" y="72.5" text-anchor="middle">2</text></a>
+<a href="#finding-1afe5995-fd00-41d4-9990-91c01af33a65"><title>The label-printer repository was last pushed on 9 January 2025 and has 19 open issues.
+Name an owner for label-printer, or record that it is retired.</title><circle class="recommendation" cx="399.0" cy="103.0" r="9"/><text class="count" x="399.0" y="106.5" text-anchor="middle">2</text></a>
+<a href="#finding-9de02f94-6c7f-496d-b0a4-9e61fd25e21d"><title>dispatch-api has an active workflow named manual-deploy, so releases may need a person to start them.</title><circle class="hypothesis" cx="743.0" cy="137.0" r="7"/></a>
+<a href="#finding-5e47780c-d992-4ce2-89ae-e2dd1922eeee"><title>A recurring 15-minute event with 3 attendees starts at 09:00 UTC on 2 November 2026, organised inside brindlewood.example.</title><circle class="fact" cx="313.0" cy="171.0" r="7"/></a>
+<a href="#finding-d2f3f373-3fe7-48a7-a17d-0c6cd97fea62"><title>A shared PDF in Drive is owned by an outside domain, fennimorelabs.example.</title><circle class="fact" cx="313.0" cy="205.0" r="7"/></a>
+<a href="#finding-087dea49-8734-4dbc-b1a2-a6d151aa620e"><title>#label-printer-help had one message in the window, on 31 October 2026, and no replies.</title><circle class="fact" cx="571.0" cy="239.0" r="7"/></a>
+</svg>
+<p class="legend"><span class="fact">Observed fact</span><span class="hypothesis">Hypothesis</span><span class="recommendation">Includes a recommendation</span><span>A number means several findings.</span></p>
+</section>
 
 <h2 id="system">Systems map</h2>
 <p class="muted">What you run and how it connects.</p>
-<article class="finding" id="finding-049df570-d4c6-4317-b23e-628887005b1f">
+<article class="finding" id="finding-d2f3f373-3fe7-48a7-a17d-0c6cd97fea62">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>A shared PDF in Drive is owned by an outside domain, fennimorelabs.example.</p>
   <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
@@ -64,7 +127,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
     <li class="mono">google_workspace://workspace/drive/files/1FnPilotPlan<br>/shared</li>
   </ul>
 </article>
-<article class="finding" id="finding-53d051e9-9f85-406f-94f8-cfd6cc12160e">
+<article class="finding" id="finding-5e47780c-d992-4ce2-89ae-e2dd1922eeee">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>A recurring 15-minute event with 3 attendees starts at 09:00 UTC on 2 November 2026, organised inside brindlewood.example.</p>
   <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
@@ -77,7 +140,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 </article>
 <h2 id="ownership">Queue ownership</h2>
 <p class="muted">Where work waits, and who owns it.</p>
-<article class="finding" id="finding-d80fd765-20a5-4308-8f8e-0e2475792a0d">
+<article class="finding" id="finding-1afe5995-fd00-41d4-9990-91c01af33a65">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>The label-printer repository was last pushed on 9 January 2025 and has 19 open issues.</p>
   <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
@@ -86,7 +149,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
     <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/open_issues_count</li>
   </ul>
 </article>
-<article class="finding" id="finding-22c19ea4-69d7-4b0a-b6a8-9fa015792ebf">
+<article class="finding" id="finding-3d5fdbae-4f7b-4313-b1c7-28645b0acdcc">
   <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span>
   <p>Name an owner for label-printer, or record that it is retired.</p>
 <p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 2 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No push since January 2025 and 19 open issues. The records do not say who owns it; staff should confirm before anything is changed.</p>  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
@@ -97,7 +160,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 </article>
 <h2 id="handoff">Handoff gaps</h2>
 <p class="muted">Where work passes between teams and stalls.</p>
-<article class="finding" id="finding-14adb161-7fec-4a0b-9b1a-24398c34a375">
+<article class="finding" id="finding-2c18586d-eb0b-4940-8f38-f7cf9c86baea">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>Pull request 41 in dispatch-api has been open since 1 October 2026 with no pending review request to a person or a team.</p>
   <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
@@ -108,7 +171,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
     <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_teams</li>
   </ul>
 </article>
-<article class="finding" id="finding-6c3ac018-e002-46ec-9fda-b0bc7aaaa687">
+<article class="finding" id="finding-9fc3e976-7d93-4d69-bb45-f0ae4e4e8804">
   <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span>
   <p>Confirm who reviews pull request 41 in dispatch-api, and how a review is requested when the author does not name one.</p>
 <p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 1 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No review request is pending. GitHub drops a reviewer once they review, so it may have been reviewed; staff can confirm in one look.</p>  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
@@ -119,7 +182,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 </article>
 <h2 id="support_flow">Support flow</h2>
 <p class="muted">How a request moves from arrival to resolution.</p>
-<article class="finding" id="finding-37c0c9c6-afa7-418a-a13c-0a019d60256a">
+<article class="finding" id="finding-087dea49-8734-4dbc-b1a2-a6d151aa620e">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>#label-printer-help had one message in the window, on 31 October 2026, and no replies.</p>
   <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
@@ -134,7 +197,7 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 <p class="muted">No verified findings in this audit. That is not a finding that nothing is wrong: see what was examined below.</p>
 <h2 id="automation">Automation backlog</h2>
 <p class="muted">What to automate first.</p>
-<p class="muted rule">Ranked by value (highest first), then effort (lowest first), then the order found. Items without both scores come last, marked Not scored.</p><article class="finding" id="finding-38dc8ef8-16b0-4c80-a06f-834827db9f0e">
+<p class="muted rule">Ranked by value (highest first), then effort (lowest first), then the order found. Items without both scores come last, marked Not scored.</p><article class="finding" id="finding-9de02f94-6c7f-496d-b0a4-9e61fd25e21d">
   <span class="badge">Verified</span> <span class="badge">Hypothesis</span> <span class="rank">#1</span>
   <p>dispatch-api has an active workflow named manual-deploy, so releases may need a person to start them.</p>
   <dl class="score"><div><dt>Score</dt><dd>Not scored</dd></div></dl>
@@ -151,9 +214,9 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 <div class="scroll"><table>
 <thead><tr><th>Source</th><th>Status</th><th>Records read</th><th>By kind</th><th>Not examined</th><th>Read</th></tr></thead>
 <tbody>
-<tr><td class="mono">github</td><td>Read</td><td>8</td><td>pull_request 4, repository 2, workflow 2</td><td>&mdash;</td><td>24 Nov 2026, 23:06 UTC</td></tr>
-<tr><td class="mono">slack</td><td>Partly read</td><td>6</td><td>channel 3, channel_activity 3</td><td>1 resource</td><td>24 Nov 2026, 23:06 UTC</td></tr>
-<tr><td class="mono">google_workspace</td><td>Read</td><td>6</td><td>calendar_event 3, drive_file 3</td><td>&mdash;</td><td>24 Nov 2026, 23:06 UTC</td></tr>
+<tr><td class="mono">github</td><td>Read</td><td>8</td><td>pull_request 4, repository 2, workflow 2</td><td>&mdash;</td><td>24 Nov 2026, 23:43 UTC</td></tr>
+<tr><td class="mono">slack</td><td>Partly read</td><td>6</td><td>channel 3, channel_activity 3</td><td>1 resource</td><td>24 Nov 2026, 23:43 UTC</td></tr>
+<tr><td class="mono">google_workspace</td><td>Read</td><td>6</td><td>calendar_event 3, drive_file 3</td><td>&mdash;</td><td>24 Nov 2026, 23:43 UTC</td></tr>
 </tbody>
 </table></div>
 <p><strong>Unknown or not examined:</strong></p>
@@ -163,17 +226,17 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 <div class="scroll"><table>
 <thead><tr><th>Record</th><th>Kind</th><th>Read at</th><th>Content hash</th></tr></thead>
 <tbody>
-<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/pulls/41</td><td>pull_request</td><td>24 Nov 2026, 23:06 UTC</td><td class="mono">8d6710ec34bd789a</td></tr>
-<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002</td><td>workflow</td><td>24 Nov 2026, 23:06 UTC</td><td class="mono">491b97bfe46c5c80</td></tr>
-<tr><td class="mono">github://brindlewood-supply/repos/label-printer</td><td>repository</td><td>24 Nov 2026, 23:06 UTC</td><td class="mono">22468da259fd32e3</td></tr>
-<tr><td class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup</td><td>calendar_event</td><td>24 Nov 2026, 23:06 UTC</td><td class="mono">7b8c7c404a5d480c</td></tr>
-<tr><td class="mono">google_workspace://workspace/drive/files/1FnPilotPlan</td><td>drive_file</td><td>24 Nov 2026, 23:06 UTC</td><td class="mono">fd2bca8ea683d9d5</td></tr>
-<tr><td class="mono">slack://workspace/channels/C02BWLABELS/activity</td><td>channel_activity</td><td>24 Nov 2026, 23:06 UTC</td><td class="mono">c312f1f968d9e9eb</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/pulls/41</td><td>pull_request</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">8d6710ec34bd789a</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002</td><td>workflow</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">491b97bfe46c5c80</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/label-printer</td><td>repository</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">22468da259fd32e3</td></tr>
+<tr><td class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup</td><td>calendar_event</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">7b8c7c404a5d480c</td></tr>
+<tr><td class="mono">google_workspace://workspace/drive/files/1FnPilotPlan</td><td>drive_file</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">fd2bca8ea683d9d5</td></tr>
+<tr><td class="mono">slack://workspace/channels/C02BWLABELS/activity</td><td>channel_activity</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">c312f1f968d9e9eb</td></tr>
 </tbody>
 </table></div>
 
 <footer>
-  <div>Prepared by Plainweave from evidence export <span class="mono">828b649bb9cb2901</span> of store <span class="mono">brindlewood-supply/515e553a-516e-451c-9ecd-a47924b04e48</span>.</div>
+  <div>Prepared by Plainweave from evidence export <span class="mono">68fa484a4f4e5b7b</span> of store <span class="mono">brindlewood-supply/d8523cfa-12d8-4f47-8696-29ac7f4f184e</span>.</div>
   <div>Access during this audit was read-only.</div>
 </footer>
 </main>
