@@ -48,6 +48,18 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 .map .hypothesis + .count { fill:var(--teal); }
 .map .recommendation + .count { fill:#0e1116; }
 .map a:focus-visible circle { stroke:var(--fg); stroke-width:2; }
+.flow .node rect { fill:var(--sheet); stroke:var(--teal); stroke-width:1.5; }
+.flow .node.attested rect { stroke:var(--muted); stroke-dasharray:5 4; }
+.flow .node .caption { font:500 9px var(--mono); fill:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+.flow .edge line { stroke:var(--teal); stroke-width:1.5; }
+.flow .edge.attested line { stroke:var(--muted); stroke-dasharray:5 4; }
+.flow .edge text { font:400 10px var(--mono); fill:var(--muted); paint-order:stroke; stroke:var(--sheet); stroke-width:4px; }
+.flow .arrowhead { fill:var(--muted); }
+.flow a:focus-visible rect { stroke:var(--fg); stroke-width:2; }
+.legend .dashed { border:1.5px dashed var(--muted); padding:0 6px; }
+.legend .solid { border:1.5px solid var(--teal); padding:0 6px; }
+.legend .dashed::before, .legend .solid::before { display:none; }
+.map h3 { font:600 15px var(--body); margin:20px 0 4px; }
 .legend { display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); margin:6px 0 0; }
 .legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
 .legend .fact::before { background:var(--teal); }
@@ -59,78 +71,125 @@ footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); fo
 </head>
 <body>
 <main>
-<p class="muted" style="border:1px solid currentColor;border-radius:8px;padding:10px 14px;margin:0 0 18px">Sample report. Brindlewood Supply is an invented company. Its records are Plainweave's test fixtures, read by the real connectors, routed, analysed and verified by the real pipeline; only the model's replies are scripted. <a href="/">Back to Plainweave</a></p>
+<p class="muted" style="border:1px solid currentColor;border-radius:8px;padding:10px 14px;margin:0 0 18px">Sample report. Brindlewood Supply is an invented company. Its records are Plainweave's test fixtures, read by the real connectors, plus invented walkthrough answers, a blank form and a CSV export entered the way an operator would. All of it is routed, analysed and verified by the real pipeline; only the model's replies are scripted. <a href="/">Back to Plainweave</a></p>
 <span class="eyebrow">Plainweave Audit report</span>
 <h1>Brindlewood Supply</h1>
 <p class="muted">Every finding below was checked against the cited record by a role other than its author. Findings that could not be traced to a stored, unchanged source are not in this report.</p>
 <p class="muted">Observed facts describe cited values. Hypotheses and recommendations remain interpretations for human review, even after evidence checks.</p>
 <dl class="meta">
-  <div><dt>Verified findings</dt><dd>8</dd></div>
-  <div><dt>Records cited</dt><dd>6</dd></div>
+  <div><dt>Verified findings</dt><dd>12</dd></div>
+  <div><dt>Records cited</dt><dd>13</dd></div>
   <div><dt>Collected</dt><dd>1 October to 5 November 2026</dd></div>
-  <div><dt>Generated</dt><dd>24 Nov 2026, 23:43 UTC</dd></div>
+  <div><dt>Generated</dt><dd>27 Nov 2026, 21:43 UTC</dd></div>
 </dl>
 <section class="map" aria-labelledby="map-title">
 <h2 id="map-title">Where the findings are</h2>
+<h3>Paper and older systems</h3>
+<p class="muted">Each box is a paper form or a system that a verified finding cites; each arrow is where someone re-types work from one into the next. Select a box or an arrow to go to its finding.</p>
+<svg class="flow" viewBox="0 0 794 140" role="img" aria-label="Paper and older systems: 2 paper forms and 2 systems, with 2 re-keying steps. A dashed outline means attested only.">
+<defs><marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<text class="head" x="198.5" y="18" text-anchor="middle">Paper</text>
+<text class="head" x="595.5" y="18" text-anchor="middle">Systems</text>
+<a href="#finding-28c86213-02b9-432c-a051-55cfca5479b9"><g class="edge attested"><title>Delivery note → Dispatch spreadsheet
+Re-keyed by dispatcher
+Attested only: no cited export join or verified fact backs it.</title><line x1="273.5" y1="54.0" x2="520.5" y2="54.0" marker-end="url(#flow-arrow)"/><text x="397.0" y="49.0" text-anchor="middle">dispatcher</text></g></a><a href="#finding-b3a87827-0b10-4bba-9886-bca365a66859"><g class="edge"><title>Job sheet → JobBoss
+Re-keyed by office manager, about 4 days later
+A verified fact backs it with records from the system it goes into.</title><line x1="273.5" y1="112.0" x2="520.5" y2="112.0" marker-end="url(#flow-arrow)"/><text x="397.0" y="107.0" text-anchor="middle">office manager</text><text x="397.0" y="125.0" text-anchor="middle">4 days later</text></g></a><a href="#finding-28c86213-02b9-432c-a051-55cfca5479b9"><g class="node attested"><title>Delivery note
+Attested only: described in a walkthrough.</title><rect x="123.5" y="34" width="150" height="40" rx="4"/><text class="caption" x="131.5" y="48">paper form</text><text class="label" x="131.5" y="64">Delivery note</text></g></a><a href="#finding-5cd7d444-343e-4d65-a795-573bed30a681"><g class="node attested"><title>Job sheet
+The blank form was read: 8 fields. How it is filled in and re-keyed is attested only.</title><rect x="123.5" y="92" width="150" height="40" rx="4"/><text class="caption" x="131.5" y="106">paper form · 8 fields</text><text class="label" x="131.5" y="122">Job sheet</text></g></a><g class="node attested"><title>Dispatch spreadsheet
+Attested only: described in a walkthrough, no cited export backs it.</title><rect x="520.5" y="34" width="150" height="40" rx="4"/><text class="caption" x="528.5" y="48">attested only</text><text class="label" x="528.5" y="64">Dispatch spreadsh…</text></g><a href="#finding-ee40b73e-3140-4cec-a2f5-66df15a37b70"><g class="node"><title>JobBoss
+Seen in a cited export.</title><rect x="520.5" y="92" width="150" height="40" rx="4"/><text class="caption" x="528.5" y="106">seen in an export</text><text class="label" x="528.5" y="122">JobBoss</text></g></a></svg>
+<p class="legend"><span class="dashed">Dashed: attested only</span><span class="solid">Solid: seen in a cited export</span><span>Paper forms are always dashed: Plainweave never reads the paper.</span></p>
+<h3>Findings by record</h3>
 <p class="muted">Each row is a record a verified finding cites; each column is a section of this report. Select a marker to go to its finding. It shows where findings cluster, not everything that was read.</p>
-<svg viewBox="0 0 794 264" role="img" aria-label="Findings map: 8 verified findings across 6 cited records. The record with the most findings is dispatch-api · PR 41.">
+<svg viewBox="0 0 794 502" role="img" aria-label="Findings map: 12 verified findings across 13 cited records. The record with the most findings is blank form · Job sheet.">
 <text class="head" x="313.0" y="30" text-anchor="middle">Systems</text>
-<line class="grid" x1="313.0" y1="40" x2="313.0" y2="256"/>
+<line class="grid" x1="313.0" y1="40" x2="313.0" y2="494"/>
 <text class="head" x="399.0" y="30" text-anchor="middle">Ownership</text>
-<line class="grid" x1="399.0" y1="40" x2="399.0" y2="256"/>
+<line class="grid" x1="399.0" y1="40" x2="399.0" y2="494"/>
 <text class="head" x="485.0" y="30" text-anchor="middle">Handoffs</text>
-<line class="grid" x1="485.0" y1="40" x2="485.0" y2="256"/>
+<line class="grid" x1="485.0" y1="40" x2="485.0" y2="494"/>
 <text class="head" x="571.0" y="30" text-anchor="middle">Support</text>
-<line class="grid" x1="571.0" y1="40" x2="571.0" y2="256"/>
+<line class="grid" x1="571.0" y1="40" x2="571.0" y2="494"/>
 <text class="head" x="657.0" y="30" text-anchor="middle">Spend</text>
-<line class="grid" x1="657.0" y1="40" x2="657.0" y2="256"/>
+<line class="grid" x1="657.0" y1="40" x2="657.0" y2="494"/>
 <text class="head" x="743.0" y="30" text-anchor="middle">Automation</text>
-<line class="grid" x1="743.0" y1="40" x2="743.0" y2="256"/>
+<line class="grid" x1="743.0" y1="40" x2="743.0" y2="494"/>
 <line class="grid" x1="0" y1="86.0" x2="794" y2="86.0" opacity="0.5"/>
-<text class="system" x="0" y="65.0">github</text>
-<text class="label" x="0" y="79.0">dispatch-api · PR 41</text>
+<text class="system" x="0" y="65.0">form</text>
+<text class="label" x="0" y="79.0">blank form · Job sheet</text>
 <line class="grid" x1="0" y1="120.0" x2="794" y2="120.0" opacity="0.5"/>
 <text class="system" x="0" y="99.0">github</text>
-<text class="label" x="0" y="113.0">label-printer</text>
+<text class="label" x="0" y="113.0">dispatch-api · PR 41</text>
 <line class="grid" x1="0" y1="154.0" x2="794" y2="154.0" opacity="0.5"/>
 <text class="system" x="0" y="133.0">github</text>
-<text class="label" x="0" y="147.0">workflow · manual-deploy</text>
+<text class="label" x="0" y="147.0">label-printer</text>
 <line class="grid" x1="0" y1="188.0" x2="794" y2="188.0" opacity="0.5"/>
-<text class="system" x="0" y="167.0">google_workspace</text>
-<text class="label" x="0" y="181.0">calendar event · evtdispatchstandup</text>
+<text class="system" x="0" y="167.0">walkthrough</text>
+<text class="label" x="0" y="181.0">paper form · Job sheet</text>
 <line class="grid" x1="0" y1="222.0" x2="794" y2="222.0" opacity="0.5"/>
-<text class="system" x="0" y="201.0">google_workspace</text>
-<text class="label" x="0" y="215.0">Drive file · 1FnPilotPlan</text>
+<text class="system" x="0" y="201.0">export</text>
+<text class="label" x="0" y="215.0">JobBoss export · row 1</text>
 <line class="grid" x1="0" y1="256.0" x2="794" y2="256.0" opacity="0.5"/>
-<text class="system" x="0" y="235.0">slack</text>
-<text class="label" x="0" y="249.0">C02BWLABELS · activity</text>
-<a href="#finding-2c18586d-eb0b-4940-8f38-f7cf9c86baea"><title>Pull request 41 in dispatch-api has been open since 1 October 2026 with no pending review request to a person or a team.
-Confirm who reviews pull request 41 in dispatch-api, and how a review is requested when the author does not name one.</title><circle class="recommendation" cx="485.0" cy="69.0" r="9"/><text class="count" x="485.0" y="72.5" text-anchor="middle">2</text></a>
-<a href="#finding-1afe5995-fd00-41d4-9990-91c01af33a65"><title>The label-printer repository was last pushed on 9 January 2025 and has 19 open issues.
-Name an owner for label-printer, or record that it is retired.</title><circle class="recommendation" cx="399.0" cy="103.0" r="9"/><text class="count" x="399.0" y="106.5" text-anchor="middle">2</text></a>
-<a href="#finding-9de02f94-6c7f-496d-b0a4-9e61fd25e21d"><title>dispatch-api has an active workflow named manual-deploy, so releases may need a person to start them.</title><circle class="hypothesis" cx="743.0" cy="137.0" r="7"/></a>
-<a href="#finding-5e47780c-d992-4ce2-89ae-e2dd1922eeee"><title>A recurring 15-minute event with 3 attendees starts at 09:00 UTC on 2 November 2026, organised inside brindlewood.example.</title><circle class="fact" cx="313.0" cy="171.0" r="7"/></a>
-<a href="#finding-d2f3f373-3fe7-48a7-a17d-0c6cd97fea62"><title>A shared PDF in Drive is owned by an outside domain, fennimorelabs.example.</title><circle class="fact" cx="313.0" cy="205.0" r="7"/></a>
-<a href="#finding-087dea49-8734-4dbc-b1a2-a6d151aa620e"><title>#label-printer-help had one message in the window, on 31 October 2026, and no replies.</title><circle class="fact" cx="571.0" cy="239.0" r="7"/></a>
+<text class="system" x="0" y="235.0">export</text>
+<text class="label" x="0" y="249.0">JobBoss export · row 2</text>
+<line class="grid" x1="0" y1="290.0" x2="794" y2="290.0" opacity="0.5"/>
+<text class="system" x="0" y="269.0">export</text>
+<text class="label" x="0" y="283.0">JobBoss export · row 3</text>
+<line class="grid" x1="0" y1="324.0" x2="794" y2="324.0" opacity="0.5"/>
+<text class="system" x="0" y="303.0">export</text>
+<text class="label" x="0" y="317.0">JobBoss export · row 4</text>
+<line class="grid" x1="0" y1="358.0" x2="794" y2="358.0" opacity="0.5"/>
+<text class="system" x="0" y="337.0">github</text>
+<text class="label" x="0" y="351.0">workflow · manual-deploy</text>
+<line class="grid" x1="0" y1="392.0" x2="794" y2="392.0" opacity="0.5"/>
+<text class="system" x="0" y="371.0">google_workspace</text>
+<text class="label" x="0" y="385.0">calendar event · evtdispatchstandup</text>
+<line class="grid" x1="0" y1="426.0" x2="794" y2="426.0" opacity="0.5"/>
+<text class="system" x="0" y="405.0">google_workspace</text>
+<text class="label" x="0" y="419.0">Drive file · 1FnPilotPlan</text>
+<line class="grid" x1="0" y1="460.0" x2="794" y2="460.0" opacity="0.5"/>
+<text class="system" x="0" y="439.0">slack</text>
+<text class="label" x="0" y="453.0">C02BWLABELS · activity</text>
+<line class="grid" x1="0" y1="494.0" x2="794" y2="494.0" opacity="0.5"/>
+<text class="system" x="0" y="473.0">walkthrough</text>
+<text class="label" x="0" y="487.0">paper form · Delivery note</text>
+<a href="#finding-5cd7d444-343e-4d65-a795-573bed30a681"><title>The blank job sheet has 8 fields to fill in: 6 written, 1 tick box and a customer signature.</title><circle class="fact" cx="313.0" cy="69.0" r="7"/></a>
+<a href="#finding-b3a87827-0b10-4bba-9886-bca365a66859"><title>Size capturing the job sheet&#39;s 8 fields on site, so the office manager no longer re-types about 40 a week into JobBoss.</title><circle class="recommendation" cx="743.0" cy="69.0" r="7"/></a>
+<a href="#finding-38b7bf4f-cd59-49af-b9ce-b763c0a1a243"><title>Pull request 41 in dispatch-api has been open since 1 October 2026 with no pending review request to a person or a team.
+Confirm who reviews pull request 41 in dispatch-api, and how a review is requested when the author does not name one.</title><circle class="recommendation" cx="485.0" cy="103.0" r="9"/><text class="count" x="485.0" y="106.5" text-anchor="middle">2</text></a>
+<a href="#finding-7d8aac18-7539-49f8-bcc8-9040432934bd"><title>The label-printer repository was last pushed on 9 January 2025 and has 19 open issues.
+Name an owner for label-printer, or record that it is retired.</title><circle class="recommendation" cx="399.0" cy="137.0" r="9"/><text class="count" x="399.0" y="140.5" text-anchor="middle">2</text></a>
+<a href="#finding-ee40b73e-3140-4cec-a2f5-66df15a37b70"><title>Job sheets are re-typed into JobBoss: each of the 4 JobBoss rows cited was created 3 to 5 days after its job was completed (as of 5 Nov 202…</title><circle class="fact" cx="485.0" cy="171.0" r="7"/></a>
+<a href="#finding-b3a87827-0b10-4bba-9886-bca365a66859"><title>Size capturing the job sheet&#39;s 8 fields on site, so the office manager no longer re-types about 40 a week into JobBoss.</title><circle class="recommendation" cx="743.0" cy="171.0" r="7"/></a>
+<a href="#finding-ee40b73e-3140-4cec-a2f5-66df15a37b70"><title>Job sheets are re-typed into JobBoss: each of the 4 JobBoss rows cited was created 3 to 5 days after its job was completed (as of 5 Nov 202…</title><circle class="fact" cx="485.0" cy="205.0" r="7"/></a>
+<a href="#finding-ee40b73e-3140-4cec-a2f5-66df15a37b70"><title>Job sheets are re-typed into JobBoss: each of the 4 JobBoss rows cited was created 3 to 5 days after its job was completed (as of 5 Nov 202…</title><circle class="fact" cx="485.0" cy="239.0" r="7"/></a>
+<a href="#finding-ee40b73e-3140-4cec-a2f5-66df15a37b70"><title>Job sheets are re-typed into JobBoss: each of the 4 JobBoss rows cited was created 3 to 5 days after its job was completed (as of 5 Nov 202…</title><circle class="fact" cx="485.0" cy="273.0" r="7"/></a>
+<a href="#finding-ee40b73e-3140-4cec-a2f5-66df15a37b70"><title>Job sheets are re-typed into JobBoss: each of the 4 JobBoss rows cited was created 3 to 5 days after its job was completed (as of 5 Nov 202…</title><circle class="fact" cx="485.0" cy="307.0" r="7"/></a>
+<a href="#finding-ececdfa5-8599-4955-a90e-2b7af60231df"><title>dispatch-api has an active workflow named manual-deploy, so releases may need a person to start them.</title><circle class="hypothesis" cx="743.0" cy="341.0" r="7"/></a>
+<a href="#finding-e1922328-4039-4646-b78e-2e43eac170e9"><title>A recurring 15-minute event with 3 attendees starts at 09:00 UTC on 2 November 2026, organised inside brindlewood.example.</title><circle class="fact" cx="313.0" cy="375.0" r="7"/></a>
+<a href="#finding-f41b68be-0922-4a33-b192-db3e67ec51bf"><title>A shared PDF in Drive is owned by an outside domain, fennimorelabs.example.</title><circle class="fact" cx="313.0" cy="409.0" r="7"/></a>
+<a href="#finding-d17843d5-e0b8-4ba4-83da-2633e280862b"><title>#label-printer-help had one message in the window, on 31 October 2026, and no replies.</title><circle class="fact" cx="571.0" cy="443.0" r="7"/></a>
+<a href="#finding-28c86213-02b9-432c-a051-55cfca5479b9"><title>Delivery notes are typed into the dispatch spreadsheet by the dispatcher, according to the dispatcher. No export of the spreadsheet was rea…</title><circle class="hypothesis" cx="485.0" cy="477.0" r="7"/></a>
 </svg>
 <p class="legend"><span class="fact">Observed fact</span><span class="hypothesis">Hypothesis</span><span class="recommendation">Includes a recommendation</span><span>A number means several findings.</span></p>
 </section>
 
 <h2 id="system">Systems map</h2>
 <p class="muted">What you run and how it connects.</p>
-<article class="finding" id="finding-d2f3f373-3fe7-48a7-a17d-0c6cd97fea62">
+<article class="finding" id="finding-f41b68be-0922-4a33-b192-db3e67ec51bf">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>A shared PDF in Drive is owned by an outside domain, fennimorelabs.example.</p>
-  <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
+  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono">google_workspace://workspace/drive/files/1FnPilotPlan<br>/owner_domains/0 → fennimorelabs.example</li>
     <li class="mono">google_workspace://workspace/drive/files/1FnPilotPlan<br>/shared</li>
   </ul>
 </article>
-<article class="finding" id="finding-5e47780c-d992-4ce2-89ae-e2dd1922eeee">
+<article class="finding" id="finding-e1922328-4039-4646-b78e-2e43eac170e9">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>A recurring 15-minute event with 3 attendees starts at 09:00 UTC on 2 November 2026, organised inside brindlewood.example.</p>
-  <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
+  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/recurring</li>
     <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/attendee_count</li>
@@ -138,21 +197,32 @@ Name an owner for label-printer, or record that it is retired.</title><circle cl
     <li class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup<br>/end → 2026-11-02T09:15:00Z</li>
   </ul>
 </article>
+<article class="finding" id="finding-5cd7d444-343e-4d65-a795-573bed30a681">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>The blank job sheet has 8 fields to fill in: 6 written, 1 tick box and a customer signature.</p>
+  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">form://brindlewood-supply/e477073800ba2804<br>/field_count</li>
+    <li class="mono">form://brindlewood-supply/e477073800ba2804<br>/entries/written</li>
+    <li class="mono">form://brindlewood-supply/e477073800ba2804<br>/entries/ticked</li>
+    <li class="mono">form://brindlewood-supply/e477073800ba2804<br>/entries/signed</li>
+  </ul>
+</article>
 <h2 id="ownership">Queue ownership</h2>
 <p class="muted">Where work waits, and who owns it.</p>
-<article class="finding" id="finding-1afe5995-fd00-41d4-9990-91c01af33a65">
+<article class="finding" id="finding-7d8aac18-7539-49f8-bcc8-9040432934bd">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>The label-printer repository was last pushed on 9 January 2025 and has 19 open issues.</p>
-  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <div class="who">Found by Engineering · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/pushed_at → 2025-01-09T11:45:00Z</li>
     <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/open_issues_count</li>
   </ul>
 </article>
-<article class="finding" id="finding-3d5fdbae-4f7b-4313-b1c7-28645b0acdcc">
+<article class="finding" id="finding-23c4ba55-afe3-4b8b-baa6-937efd24f3d6">
   <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span>
   <p>Name an owner for label-printer, or record that it is retired.</p>
-<p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 2 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No push since January 2025 and 19 open issues. The records do not say who owns it; staff should confirm before anything is changed.</p>  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+<p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 2 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No push since January 2025 and 19 open issues. The records do not say who owns it; staff should confirm before anything is changed.</p>  <div class="who">Found by Engineering · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/pushed_at → 2025-01-09T11:45:00Z</li>
     <li class="mono"><a href="https://github.com/brindlewood-supply/label-printer" rel="noopener noreferrer">github://brindlewood-supply/repos/label-printer</a><br>/open_issues_count</li>
@@ -160,10 +230,10 @@ Name an owner for label-printer, or record that it is retired.</title><circle cl
 </article>
 <h2 id="handoff">Handoff gaps</h2>
 <p class="muted">Where work passes between teams and stalls.</p>
-<article class="finding" id="finding-2c18586d-eb0b-4940-8f38-f7cf9c86baea">
+<article class="finding" id="finding-38b7bf4f-cd59-49af-b9ce-b763c0a1a243">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>Pull request 41 in dispatch-api has been open since 1 October 2026 with no pending review request to a person or a team.</p>
-  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <div class="who">Found by Engineering · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/state → open</li>
     <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/created_at → 2026-10-01T09:00:00Z</li>
@@ -171,21 +241,46 @@ Name an owner for label-printer, or record that it is retired.</title><circle cl
     <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_teams</li>
   </ul>
 </article>
-<article class="finding" id="finding-9fc3e976-7d93-4d69-bb45-f0ae4e4e8804">
+<article class="finding" id="finding-e51c9fbd-0a65-40ed-b25b-440ace74bdac">
   <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span>
   <p>Confirm who reviews pull request 41 in dispatch-api, and how a review is requested when the author does not name one.</p>
-<p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 1 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No review request is pending. GitHub drops a reviewer once they review, so it may have been reviewed; staff can confirm in one look.</p>  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+<p class="basis"><span class="muted">Estimated impact:</span> 3 of 5 · <span class="muted">Effort:</span> 1 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> No review request is pending. GitHub drops a reviewer once they review, so it may have been reviewed; staff can confirm in one look.</p>  <div class="who">Found by Engineering · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_reviewers</li>
     <li class="mono"><a href="https://github.com/brindlewood-supply/dispatch-api/pull/41" rel="noopener noreferrer">github://brindlewood-supply/repos/dispatch-api/pulls/41</a><br>/requested_teams</li>
   </ul>
 </article>
+<article class="finding" id="finding-28c86213-02b9-432c-a051-55cfca5479b9">
+  <span class="badge">Verified</span> <span class="badge">Hypothesis</span>
+  <p>Delivery notes are typed into the dispatch spreadsheet by the dispatcher, according to the dispatcher. No export of the spreadsheet was read.</p>
+  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">walkthrough://brindlewood-supply/paper_form/734128d8baaa1a11<br>/rekeyed_into → Dispatch spreadsheet</li>
+    <li class="mono">walkthrough://brindlewood-supply/paper_form/734128d8baaa1a11<br>/rekeyed_by_role → dispatcher</li>
+  </ul>
+</article>
+<article class="finding" id="finding-ee40b73e-3140-4cec-a2f5-66df15a37b70">
+  <span class="badge">Verified</span> <span class="badge">Observed fact</span>
+  <p>Job sheets are re-typed into JobBoss: each of the 4 JobBoss rows cited was created 3 to 5 days after its job was completed (as of 5 Nov 2026).</p>
+  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">walkthrough://brindlewood-supply/paper_form/03c00c2d82c09283<br>/rekeyed_into → JobBoss</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/1<br>/fields/completed → 2026-10-27</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/1<br>/fields/created → 2026-10-31</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/2<br>/fields/completed → 2026-10-27</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/2<br>/fields/created → 2026-10-31</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/3<br>/fields/completed → 2026-10-28</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/3<br>/fields/created → 2026-10-31</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/4<br>/fields/completed → 2026-10-30</li>
+    <li class="mono">export://brindlewood-supply/3ffe1351af6fbf62/4<br>/fields/created → 2026-11-02</li>
+  </ul>
+</article>
 <h2 id="support_flow">Support flow</h2>
 <p class="muted">How a request moves from arrival to resolution.</p>
-<article class="finding" id="finding-087dea49-8734-4dbc-b1a2-a6d151aa620e">
+<article class="finding" id="finding-d17843d5-e0b8-4ba4-83da-2633e280862b">
   <span class="badge">Verified</span> <span class="badge">Observed fact</span>
   <p>#label-printer-help had one message in the window, on 31 October 2026, and no replies.</p>
-  <div class="who">Found by Operations · verified by Verifier on 24 Nov 2026</div>
+  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono">slack://workspace/channels/C02BWLABELS/activity<br>/message_count</li>
     <li class="mono">slack://workspace/channels/C02BWLABELS/activity<br>/messages_per_day/2026-10-31</li>
@@ -197,26 +292,40 @@ Name an owner for label-printer, or record that it is retired.</title><circle cl
 <p class="muted">No verified findings in this audit. That is not a finding that nothing is wrong: see what was examined below.</p>
 <h2 id="automation">Automation backlog</h2>
 <p class="muted">What to automate first.</p>
-<p class="muted rule">Ranked by value (highest first), then effort (lowest first), then the order found. Items without both scores come last, marked Not scored.</p><article class="finding" id="finding-9de02f94-6c7f-496d-b0a4-9e61fd25e21d">
+<p class="muted rule">Ranked by value (highest first), then effort (lowest first), then the order found. Items without both scores come last, marked Not scored.</p><article class="finding" id="finding-ececdfa5-8599-4955-a90e-2b7af60231df">
   <span class="badge">Verified</span> <span class="badge">Hypothesis</span> <span class="rank">#1</span>
   <p>dispatch-api has an active workflow named manual-deploy, so releases may need a person to start them.</p>
   <dl class="score"><div><dt>Score</dt><dd>Not scored</dd></div></dl>
-  <div class="who">Found by Engineering · verified by Verifier on 24 Nov 2026</div>
+  <div class="who">Found by Engineering · verified by Verifier on 27 Nov 2026</div>
   <ul class="evidence">
     <li class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002<br>/name → manual-deploy</li>
     <li class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002<br>/state → active</li>
   </ul>
 </article>
+<article class="finding" id="finding-b3a87827-0b10-4bba-9886-bca365a66859">
+  <span class="badge">Verified</span> <span class="badge">Recommendation for human review</span> <span class="rank">#2</span>
+  <p>Size capturing the job sheet&#39;s 8 fields on site, so the office manager no longer re-types about 40 a week into JobBoss.</p>
+<p class="basis"><span class="muted">Estimated impact:</span> 4 of 5 · <span class="muted">Effort:</span> 3 of 5 · <span class="muted">Uncertainty:</span> medium<br><span class="muted">Basis:</span> The office manager says 40 sheets a week are re-typed, about 4 days late. The weekly volume is what was said, not counted; confirm it before scoping a build.</p>  <dl class="score"><div><dt>Score</dt><dd>Not scored</dd></div></dl>
+<p class="basis"><span class="muted">Basis:</span> The office manager says 40 sheets a week are re-typed, about 4 days late. The weekly volume is what was said, not counted; confirm it before scoping a build.</p>  <div class="who">Found by Operations · verified by Verifier on 27 Nov 2026</div>
+  <ul class="evidence">
+    <li class="mono">form://brindlewood-supply/e477073800ba2804<br>/field_count</li>
+    <li class="mono">walkthrough://brindlewood-supply/paper_form/03c00c2d82c09283<br>/volume_per_week</li>
+    <li class="mono">walkthrough://brindlewood-supply/paper_form/03c00c2d82c09283<br>/rekeyed_by_role → office manager</li>
+  </ul>
+</article>
 
 <h2 id="scope">What was examined</h2>
-<p class="muted">Connectors used: github, slack, google_workspace.</p>
+<p class="muted">Connectors used: github, slack, google_workspace, walkthrough, form, export.</p>
 <p class="muted">Collection window: 1 October to 5 November 2026.</p><p><strong>Coverage by source.</strong> What this run read from each system. Counts are what this run read, not totals for the company. A source that failed or did not run is not evidence that nothing happened there.</p>
 <div class="scroll"><table>
 <thead><tr><th>Source</th><th>Status</th><th>Records read</th><th>By kind</th><th>Not examined</th><th>Read</th></tr></thead>
 <tbody>
-<tr><td class="mono">github</td><td>Read</td><td>8</td><td>pull_request 4, repository 2, workflow 2</td><td>&mdash;</td><td>24 Nov 2026, 23:43 UTC</td></tr>
-<tr><td class="mono">slack</td><td>Partly read</td><td>6</td><td>channel 3, channel_activity 3</td><td>1 resource</td><td>24 Nov 2026, 23:43 UTC</td></tr>
-<tr><td class="mono">google_workspace</td><td>Read</td><td>6</td><td>calendar_event 3, drive_file 3</td><td>&mdash;</td><td>24 Nov 2026, 23:43 UTC</td></tr>
+<tr><td class="mono">github</td><td>Read</td><td>8</td><td>pull_request 4, repository 2, workflow 2</td><td>&mdash;</td><td>27 Nov 2026, 21:43 UTC</td></tr>
+<tr><td class="mono">slack</td><td>Partly read</td><td>6</td><td>channel 3, channel_activity 3</td><td>1 resource</td><td>27 Nov 2026, 21:43 UTC</td></tr>
+<tr><td class="mono">google_workspace</td><td>Read</td><td>6</td><td>calendar_event 3, drive_file 3</td><td>&mdash;</td><td>27 Nov 2026, 21:43 UTC</td></tr>
+<tr><td class="mono">walkthrough</td><td>Read</td><td>2</td><td>paper_form 2</td><td>&mdash;</td><td>27 Nov 2026, 21:43 UTC</td></tr>
+<tr><td class="mono">form</td><td>Read</td><td>1</td><td>blank_form 1</td><td>&mdash;</td><td>27 Nov 2026, 21:43 UTC</td></tr>
+<tr><td class="mono">export</td><td>Read</td><td>5</td><td>export_drop 1, export_row 4</td><td>&mdash;</td><td>27 Nov 2026, 21:43 UTC; a snapshot as of 05 Nov 2026, not a live read</td></tr>
 </tbody>
 </table></div>
 <p><strong>Unknown or not examined:</strong></p>
@@ -226,17 +335,24 @@ Name an owner for label-printer, or record that it is retired.</title><circle cl
 <div class="scroll"><table>
 <thead><tr><th>Record</th><th>Kind</th><th>Read at</th><th>Content hash</th></tr></thead>
 <tbody>
-<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/pulls/41</td><td>pull_request</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">8d6710ec34bd789a</td></tr>
-<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002</td><td>workflow</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">491b97bfe46c5c80</td></tr>
-<tr><td class="mono">github://brindlewood-supply/repos/label-printer</td><td>repository</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">22468da259fd32e3</td></tr>
-<tr><td class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup</td><td>calendar_event</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">7b8c7c404a5d480c</td></tr>
-<tr><td class="mono">google_workspace://workspace/drive/files/1FnPilotPlan</td><td>drive_file</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">fd2bca8ea683d9d5</td></tr>
-<tr><td class="mono">slack://workspace/channels/C02BWLABELS/activity</td><td>channel_activity</td><td>24 Nov 2026, 23:43 UTC</td><td class="mono">c312f1f968d9e9eb</td></tr>
+<tr><td class="mono">export://brindlewood-supply/3ffe1351af6fbf62/1</td><td>export_row</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">cc6f217af8515197</td></tr>
+<tr><td class="mono">export://brindlewood-supply/3ffe1351af6fbf62/2</td><td>export_row</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">0bab52c7fe9b1022</td></tr>
+<tr><td class="mono">export://brindlewood-supply/3ffe1351af6fbf62/3</td><td>export_row</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">6f45c6b93e1c6465</td></tr>
+<tr><td class="mono">export://brindlewood-supply/3ffe1351af6fbf62/4</td><td>export_row</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">8de47a863b4d34e3</td></tr>
+<tr><td class="mono">form://brindlewood-supply/e477073800ba2804</td><td>blank_form</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">08899d51be4f1da6</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/pulls/41</td><td>pull_request</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">8d6710ec34bd789a</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/dispatch-api/workflows/3002</td><td>workflow</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">491b97bfe46c5c80</td></tr>
+<tr><td class="mono">github://brindlewood-supply/repos/label-printer</td><td>repository</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">22468da259fd32e3</td></tr>
+<tr><td class="mono">google_workspace://workspace/calendars/primary/events/evtdispatchstandup</td><td>calendar_event</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">7b8c7c404a5d480c</td></tr>
+<tr><td class="mono">google_workspace://workspace/drive/files/1FnPilotPlan</td><td>drive_file</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">fd2bca8ea683d9d5</td></tr>
+<tr><td class="mono">slack://workspace/channels/C02BWLABELS/activity</td><td>channel_activity</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">16773e39031dedcc</td></tr>
+<tr><td class="mono">walkthrough://brindlewood-supply/paper_form/03c00c2d82c09283</td><td>paper_form</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">9c8f28f238652cb8</td></tr>
+<tr><td class="mono">walkthrough://brindlewood-supply/paper_form/734128d8baaa1a11</td><td>paper_form</td><td>27 Nov 2026, 21:43 UTC</td><td class="mono">e47905b2f57a5b28</td></tr>
 </tbody>
 </table></div>
 
 <footer>
-  <div>Prepared by Plainweave from evidence export <span class="mono">68fa484a4f4e5b7b</span> of store <span class="mono">brindlewood-supply/d8523cfa-12d8-4f47-8696-29ac7f4f184e</span>.</div>
+  <div>Prepared by Plainweave from evidence export <span class="mono">3f560ff2ae91f229</span> of store <span class="mono">brindlewood-supply/c2a000be-5f5a-45d0-a011-79ee6ef93c4e</span>.</div>
   <div>Access during this audit was read-only.</div>
 </footer>
 </main>

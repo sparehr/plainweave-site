@@ -79,10 +79,10 @@
   <div class="grid deliver">
     <div class="item"><span class="num">01</span><h3>Systems map</h3><p>What you run and how it connects.</p>
       <ul><li>Repositories, pipelines, channels, files and calendars, counted and dated.</li><li>Which ones are active, stale or archived, by last activity.</li><li>Every line links to the record it came from.</li></ul>
-      <span class="feeds">Evidence today: GitHub, Slack, Google Workspace</span></div>
+      <span class="feeds">Evidence today: GitHub, Slack, Google Workspace, older-system exports and blank forms</span></div>
     <div class="item"><span class="num">02</span><h3>Ownership and handoff gaps</h3><p>Where work waits, and where it has no owner.</p>
       <ul><li>Two sections in the report: queue ownership and handoff gaps.</li><li>Reviews with no reviewer, queues with no owner, work that stalls between teams.</li><li>Queues and teams only. No finding judges a person.</li></ul>
-      <span class="feeds">Evidence today: GitHub, Slack</span></div>
+      <span class="feeds">Evidence today: GitHub, Slack, and paper re-typed into another system</span></div>
     <div class="item"><span class="num">03</span><h3>Support flow</h3><p>How a request moves from arrival to resolution.</p>
       <ul><li>Where requests arrive, how busy each channel is, and when it goes quiet.</li><li>Stage-by-stage timing needs helpdesk records.</li></ul>
       <span class="feeds">Evidence today: Slack channel activity. Zendesk and Intercom connectors are built, not yet routed to this view.</span></div>
@@ -91,7 +91,7 @@
       <span class="feeds">Evidence today: none. Stripe and QuickBooks connectors are built, not yet routed to this view.</span></div>
     <div class="item"><span class="num">05</span><h3>Ranked automation backlog</h3><p>What to automate first, with the evidence for each item.</p>
       <ul><li>Each item scored for value and effort, 1 to 5, with the reason for the score.</li><li>Ranked by value, then by lowest effort. The page states the rule.</li><li>An item without both scores is listed last, marked Not scored.</li></ul>
-      <span class="feeds">Evidence today: GitHub, Slack, Google Workspace</span></div>
+      <span class="feeds">Evidence today: GitHub, Slack, Google Workspace, paper forms</span></div>
   </div>
   <p class="note">A section with nothing verified says so in the report. It does not say that nothing is wrong.</p>
 </div></section>
@@ -231,6 +231,13 @@
     <div class="conn"><span class="name"><img class="lg-xero" src="logos/xero.svg" alt="Xero" height="36"></span><span class="st built">Tested on invented data</span><p>Suppliers, bills and expense accounts, totalled per supplier. No bank details are kept.</p></div>
     <div class="conn"><span class="name"><img class="lg-calendly" src="logos/calendly.svg" alt="Calendly" height="36"></span><span class="st built">Tested on invented data</span><p>Event types and scheduled events: status, times, hosts, invitee counts and cancellations. Invitee names, emails and answers are never requested.</p></div>
   </div>
+  <h3 class="group">Paper and older systems <span>3</span></h3>
+  <p class="sub">Most companies also run on paper forms and an older system with no API. Plainweave sees them without any access to those systems. Each source is built and tested on invented data; none has been used with a real company yet.</p>
+  <div class="conns">
+    <div class="conn"><span class="name">Walkthrough</span><span class="st built">Built · needs no access</span><p>During scoping we go through each form and older system with the person who uses it: who fills it in, how many a week, and where it is typed in next. Roles, never names. What people say is a hypothesis until a system record backs it.</p></div>
+    <div class="conn"><span class="name">Export drops</span><span class="st built">Built · needs no access</span><p>You send a CSV exported from the older system. Only the columns agreed at scoping are kept; names, addresses and notes are always dropped, job numbers are kept as a keyed hash, and amounts only as bands. Dated as a snapshot, never a live read.</p></div>
+    <div class="conn"><span class="name">Blank forms</span><span class="st built">Built · needs no access</span><p>A photo of an unused copy of each form. A model reads the field labels once; only the labels and the file's fingerprint are kept, never the image. A form that looks filled in is refused.</p></div>
+  </div>
   <p class="note"><b>Tested on invented data</b>: the connector exists and passes its tests on hand-written fixtures for an invented company. <b>Ready to connect</b>: Plainweave can also collect from it for a real company, waiting only on a registered app. Neither means an app is registered with that provider yet. Salesforce and QuickBooks offer no read-only permission, so for those two read-only is enforced by Plainweave's transport, which can only send read requests.</p>
   <p class="note tm">GitHub, Slack, Google Workspace, Microsoft 365, Jira, Asana, Zendesk, Intercom, HubSpot, Salesforce, Stripe, QuickBooks, Linear, Notion, Xero and Calendly are trademarks of their respective owners. Naming them here describes what Plainweave reads and implies no endorsement, partnership or certification. Logos are each company's own published files, shown unmodified, only to identify the systems Plainweave reads from.</p>
 </div></section>
@@ -279,18 +286,18 @@
   <p class="sub">Each role has one department and one written brief. All of them work under the same evidence rules: cite the record, point at the field, claim only what the record shows.</p>
   <div class="roles">
     <div class="role on"><span class="state">Receives records today</span><h3>Engineering</h3><p>Systems, owners, and how work moves from open to merged to deployed.</p><span class="feeds">GitHub</span></div>
-    <div class="role on"><span class="state">Receives records today</span><h3>Operations</h3><p>Recurring processes, which team runs each, and where work crosses teams.</p><span class="feeds">Slack, Google Workspace</span></div>
+    <div class="role on"><span class="state">Receives records today</span><h3>Operations</h3><p>Recurring processes, which team runs each, and where work crosses teams.</p><span class="feeds">Slack, Google Workspace, paper forms and older systems</span></div>
     <div class="role"><span class="state">Defined · no records routed yet</span><h3>Customer support</h3><p>Where requests arrive, who picks them up, where they stall.</p></div>
     <div class="role"><span class="state">Defined · no records routed yet</span><h3>Sales and marketing</h3><p>How a lead becomes a customer and what is handed on after a sale.</p></div>
     <div class="role"><span class="state">Defined · no records routed yet</span><h3>People and hiring</h3><p>Hiring, onboarding, offboarding and access requests, from process metadata only.</p></div>
-    <div class="role"><span class="state">Defined · no records routed yet</span><h3>Finance and spend</h3><p>Which tools are paid for, by which team, and how many seats are used.</p></div>
+    <div class="role on"><span class="state">Receives records today</span><h3>Finance and spend</h3><p>Which tools are paid for, by which team, and how many seats are used.</p><span class="feeds">Exports, forms and walkthrough answers about an accounting package</span></div>
     <div class="role"><span class="state">Defined · no records routed yet</span><h3>IT and security</h3><p>Which systems exist, who administers each, which apps hold access.</p></div>
     <div class="role ver"><span class="state">Checks every finding</span><h3>Verifier</h3><p>Writes no findings. Re-reads every cited record and returns a verdict with reasons. It does not repair a finding.</p></div>
   </div>
   <ul class="list tight">
     <li><span><b>Agents have no tools that act on your systems.</b> A role reads stored records and writes findings. That is all it can do.</span></li>
     <li><span><b>Text inside a record is treated as data</b>, never as an instruction to the agent.</span></li>
-    <li><span><b>Routing is a fixed rule today.</b> GitHub records go to Engineering; everything else goes to Operations. Model-assisted routing is not built.</span></li>
+    <li><span><b>Routing is a fixed rule today.</b> GitHub records go to Engineering. Paper and older-system records that involve an accounting package, such as an export from Sage or a form typed into QuickBooks, go to Finance. Everything else goes to Operations. Model-assisted routing is not built.</span></li>
     <li><span><b>Every model call is metered</b> per role and per connector, and a run can carry a cost ceiling that stops it before the ceiling is passed.</span></li>
   </ul>
 </div></section>
@@ -303,6 +310,7 @@
     <details><summary>Will it tell us how much we will save?</summary><p>No. The report shows what is there: work that waits, queues with no owner, what you pay for, and a ranked list of what to fix. It does not estimate savings, because an estimate is not evidence.</p></details>
     <details><summary>Can Plainweave change anything in our systems?</summary><p>No. Plainweave can only send read requests. There is no write, send or delete path in it, and the agents have no tools that act on your systems. The <a href="security.html">security page</a> has the technical detail.</p></details>
     <details><summary>Does it read our messages and documents?</summary><p>Not by default. Connectors keep metadata such as counts, timestamps and owners, and drop message text, titles and file bodies before anything is stored. Some permissions the providers offer would technically expose content; we mark those for you before you approve. Content is a separate grant for the engagement, and without it a content request is refused.</p></details>
+    <details><summary>Much of our work is on paper or in an old system. Can you see it?</summary><p>Yes, without access to those systems. During scoping we walk through each form and older system with the people who use them. You can also send a CSV export from the old system and a photo of each blank form. The report draws paper → old system → cloud tool on one page, and marks what rests only on what people told us. We never take filled-in forms or customer documents, and we don't connect to systems on your premises. Digitising the paperwork is a separate piece of work, scoped from the report.</p></details>
     <details><summary>What exactly do we approve?</summary><p>A list of every permission each connector requests, with the reason for each. Exact scopes are confirmed with you in writing before access is granted.</p></details>
     <details><summary>Where is our data kept?</summary><p>In a separate database for your company, with no shared tables. Credentials are sealed in a vault outside that database, so a report or a backup never contains one. Only verified findings and the records they cite leave the store.</p></details>
     <details><summary>Can we stop it?</summary><p>Yes. Revoke access from your own admin console at any time and collection stops.</p></details>

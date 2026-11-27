@@ -42,6 +42,7 @@
       <li><span><b>Metadata first.</b> Each connector keeps an allow-list of fields and drops the rest, including titles, message text and file bodies, before anything is stored.</span></li>
       <li><span><b>Content is a separate grant.</b> Without your explicit approval for the engagement, a content request is refused.</span></li>
       <li><span><b>You can revoke at any time</b> from your own admin console. Collection stops.</span></li>
+      <li><span><b>Paper and older systems need no access.</b> We take walkthrough answers, CSV exports you send, and photos of blank forms. There is no connection into a system on your premises.</span></li>
     </ul>
   </div>
   <div><h2>Storage and isolation</h2>
@@ -69,12 +70,26 @@
   </table></div>
 </div></section>
 
+<section class="band"><div class="wrap">
+  <h2>Paper and older systems</h2>
+  <p class="sub">Three sources that need no access to your systems. Each is built and tested on invented data; none has been used with a real company yet. We never take filled-in forms, scans of customer documents, screenshots of customer records, or a live connection into an on-premises system.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Source</th><th>What is kept</th><th>What is never kept</th></tr></thead>
+    <tbody>
+      <tr><td>Walkthrough answers</td><td>For each form or older system: what starts it, who fills it in and reads it (by role), rough volume, where it is kept, and whether and how late it is re-typed into another system</td><td>People's names: answers record roles. An answer holding an email address or phone number is refused. What people say counts as a hypothesis until a system record backs it.</td></tr>
+      <tr><td>Export drops</td><td>Only the columns agreed in writing at scoping: dates, statuses, codes, numbers, amounts as bands. Job, invoice or order numbers only as a keyed hash under your company's own secret. The file's hash and the export date.</td><td>Names, addresses, phone numbers, email addresses, notes and any column not in the agreed map: a file with an unmapped column is refused whole. Exact amounts.</td></tr>
+      <tr><td>Blank forms</td><td>Each field's printed label, whether it is written, ticked or signed, the heading it sits under, and the file's hash</td><td>The image itself, which is read once by a model and never stored. A form that looks filled in is refused, and nothing is kept.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
 <section><div class="wrap split">
   <div><h2>Models</h2>
     <ul class="list">
       <li><span>Model calls run through one audited module on commercial API terms, never personal accounts.</span></li>
       <li><span>We do not train models on your data.</span></li>
       <li><span>Agents have no tools that act on your systems. They read evidence and write findings.</span></li>
+      <li><span>A photo of a blank form is sent to the model once, to read its field labels. It is not stored by Plainweave afterwards.</span></li>
     </ul>
   </div>
   <div><h2>Not in place yet</h2>
