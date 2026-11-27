@@ -284,3 +284,14 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; display
 .conn .name img.lg-salesforce { height: 44px; }
 .conn .name img.lg-microsoft-365 { height: 64px; margin: -10px 0 -10px -16px; }
 .lockup img { max-width: 100%; height: auto; display: block; }
+
+/* 404: fill the screen so the footer sits at the bottom, and offer the main pages. */
+.top .btn.sm { white-space: nowrap; }
+body.notfound { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+body.notfound .hero { flex: 1; display: grid; align-content: center; }
+body.notfound > footer { width: 100%; box-sizing: border-box; }
+.nf-links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 920px; }
+.nf-links a { display: grid; gap: 4px; height: 100%; box-sizing: border-box; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(14, 17, 22, .6); text-decoration: none; transition: border-color .16s, background-color .16s; }
+.nf-links a:hover { border-color: var(--amber); background: var(--ink-800); }
+.nf-links strong { font-weight: 600; color: var(--paper); }
+.nf-links span { font-size: 14px; color: var(--muted); }
